@@ -1,0 +1,936 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Матеріали для заняття з веб-розробки" />
+
+    <!-- ❗️ Назва на вкладці -->
+    <title>Тема 9</title>
+
+    <!-- ❗️ Фавіконка (зараз немає) -->
+    <link rel="icon" href="" />
+
+    <!-- Скрипт перемикання теми -->
+    <script>
+      const savedTheme = localStorage.getItem("wu_theme") || "light";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+
+      const hljsThemeLink =
+        savedTheme === "dark"
+          ? "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+          : "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css";
+
+      document.head.insertAdjacentHTML(
+        "beforeend",
+        `<link id="hljs-theme" rel="stylesheet" href="${hljsThemeLink}" />`,
+      );
+    </script>
+
+    <!-- Підключення шрифтів (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Neucha&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Підсвітка коду (Highlight.js) -->
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"
+    ></script>
+
+    <!-- CodeMirror -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css"
+    />
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"
+    ></script>
+
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/xml/xml.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/css/css.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/htmlmixed/htmlmixed.min.js"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/dracula.min.css"
+    />
+
+    <!-- Власні стилі та скрипти -->
+    <link rel="stylesheet" href="./style.css?v=7.0" />
+    <script defer src="./script.js?v=7.0"></script>
+  </head>
+
+  <body>
+    <!-- "Завіса", яка плавно зникає при завантаженні сторінки -->
+    <div class="transition-curtain"></div>
+
+    <!-- Панель з навігацією -->
+    <script>
+      window.pageNavLinks = [
+        {
+          name: "Редактор",
+          url: "https://editor.webuniverseua.com",
+          newTab: true,
+        },
+      ];
+    </script>
+    <div id="nav-container"></div>
+
+    <!-- Хедер з назвою теми та посиланнями -->
+    <header>
+      <div class="title-container">
+        <!-- <a href="#" class="nav-arrow prev-arrow" title="Попередній урок">⬅️</a> -->
+
+        <h1 id="lesson-title">Тема 9</h1>
+
+        <!-- <a href="#" class="nav-arrow next-arrow" title="Наступний урок">➡️</a> -->
+      </div>
+
+      <p class="topic">Двовимірні масиви</p>
+
+      <!-- Короткий опис теми і мети заняття -->
+      <section class="soft-callout objective">
+        <span class="accent">Зміст уроку:</span>
+        <ul>
+          <li>Частина 1: ...</li>
+          <li>Частина 2: ...</li>
+          <li>Частина 3: ...</li>
+        </ul>
+      </section>
+
+      <hr />
+    </header>
+
+    <!-- Основний контент -->
+    <main>
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-target="part-1">Частина 1</button>
+        <button class="tab-btn" data-target="part-2">Частина 2</button>
+        <button class="tab-btn" data-target="part-3">Частина 3</button>
+        <!-- <button class="tab-btn" data-target="part-4">Додатково</button> -->
+      </div>
+
+      <!-- 🧩 ЧАСТИНА 1 -->
+
+      <section id="part-1" class="accordion tab-content active show">
+        <!-- 📚 Теорія 1 -->
+        <!-- what are 2D arrays? 
+          what are they usually used for in games?
+          basic syntax: const array = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9],
+          ]  -->
+        <details class="accordion__item" name="section1">
+          <summary class="accordion__header">
+            <h2>
+              <span class="star">✧</span> Теорія:
+              <span class="accent">2D масиви - це...</span>
+            </h2>
+            <span class="acc-arrow">▶</span>
+          </summary>
+
+          <div class="accordion__content">
+            <h3 id="p1-why">Чому ми це вчимо?</h3>
+            <p>
+              Багато комп'ютерних ігор та додатків використовують
+              <span class="accent">матриці або таблиці</span> для зберігання
+              даних. Наприклад, поле для гри в шахи, інвентар гравця у
+              Minecraft, карта рівня або поле для "хрестиків-нуликів" — усе це
+              <span class="accent">двовимірні структури</span>. Для комп'ютера
+              такі матриці зазвичай задаються як набір значень, де кожна цифра
+              або символ відповідає за стан певної клітинки (наприклад: 0 —
+              порожнеча, 1 — стіна тощо). Щоб зручно зберігати, обробляти та
+              змінювати такі структури, програмістам потрібен інструмент, який
+              дозволяє працювати з даними у вигляді таблиці. Цим інструментом є
+              <span class="accent">двовимірний масив</span>.
+            </p>
+
+            <hr />
+
+            <h3 id="p1-what">Що таке двовимірний масив?</h3>
+            <p>
+              <span class="accent">Двовимірний масив</span> — це масив, який
+              містить інші масиви як свої елементи. Тобто він складається з
+              <span class="accent">рядків</span> (горизонтальних ліній) та
+              <span class="accent">стовпців</span> (вертикальних колонок), що
+              нагадує таблицю, координатну сітку або математичну матрицю.
+            </p>
+
+            <p>
+              Для створення двовимірного масиву в JavaScript використовується
+              принцип <span class="accent">вкладеності</span>. Ми створюємо один
+              головний (зовнішній) масив за допомогою
+              <span class="accent">квадратних дужок</span>, а всередині нього,
+              через кому, перелічуємо інші (внутрішні) масиви. Кожен такий
+              внутрішній масив діє як окремий рядок нашої таблиці. Під час
+              написання такого коду найважливіше — уважно стежити за тим, щоб
+              кожна відкрита дужка мала свою пару, а елементи були розділені
+              комами.
+            </p>
+
+            <pre><code class="language-javascript">const matrix = [
+  [1, 2, 3], // рядок 1
+  [4, 5, 6], // рядок 2
+  [7, 8, 9], // рядок 3
+];
+
+console.log(matrix);</code></pre>
+
+            <img src="./images/example1.png" alt="console output" />
+
+            <hr />
+
+            <h3 id="p1-formatting">Форматування коду</h3>
+            <p>
+              Для комп'ютера не має значення, чи записаний весь масив у довгий
+              суцільний рядок, чи розбитий на частини. Він прочитає його
+              однаково правильно. Проте для людини читати такий текст буде
+              незручно. Тому заведено використовувати
+              <span class="accent">перенесення рядків</span> — кожен внутрішній
+              масив записується з нового рядка, строго один під одним.
+            </p>
+
+            <pre><code class="language-javascript">const badFormatting = [[0, 1, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 1, 0]];
+
+const goodFormatting = [
+  [0, 1, 1, 0], 
+  [1, 0, 0, 1], 
+  [1, 0, 0, 1], 
+  [0, 1, 1, 0],
+];</code></pre>
+          </div>
+        </details>
+
+        <!-- 📝 Завдання 1 -->
+        <!-- pixel art puzzles (creating arrays) -->
+        <details class="accordion__item" name="section1">
+          <summary class="accordion__header">
+            <h2><span class="star">✦</span> Завдання 1</h2>
+            <span class="acc-arrow">▶</span>
+          </summary>
+
+          <div class="accordion__content">
+            <h3>Тематика завдання</h3>
+            <p>
+              У цій практичній частині ми перетворимо числа на піксельні
+              малюнки. Ти завантажиш готовий скрипт, який вміє читати двовимірні
+              масиви і перетворювати кожну цифру на кольоровий квадратик
+              (піксель) на екрані. Твоє завдання — "намалювати" ці малюнки за
+              допомогою чисел.
+            </p>
+
+            <hr />
+
+            <h3>Матеріали до завдання</h3>
+
+            <p>
+              Натисни на кнопку нижче, щоб завантажити архів із файлами до
+              завдання. Розпакуй його, відкрий файл
+              <span class="accent">index.html</span> у своєму редакторі коду та
+              знайди місця для виконання завдань (там є підказки у вигляді
+              коментарів із 🔸).
+            </p>
+
+            <div class="download-buttons">
+              <a href="task9-1.zip" download class="download-button">
+                <span class="download-arrow">📥</span>
+                <span class="file-name">task9-1.zip</span>
+              </a>
+            </div>
+
+            <img
+              src="./images/task1-instructions.png"
+              alt="task 1 instructions"
+            />
+
+            <hr />
+
+            <h3>Завдання</h3>
+
+            <details class="task" name="task1" open>
+              <summary><h4>Завдання 1.1: Квітка</h4></summary>
+
+              <div>
+                <p>
+                  Намалюймо просту квітку в сітці розміром
+                  <span class="accent">3 х 3</span> (3 рядки, 3 колонки). Твоє
+                  завдання — заповнити масив
+                  <span class="accent">flower</span> правильними цифрами, щоб
+                  вийшов малюнок, як на картинці нижче.
+                </p>
+                <p><strong>Палітра кольорів:</strong></p>
+                <ul>
+                  <li>
+                    <span class="accent">0</span> — порожнеча (прозорий фон)
+                  </li>
+                  <li><span class="accent">1</span> — жовтий (центр квітки)</li>
+                  <li><span class="accent">2</span> — рожевий (пелюстки)</li>
+                </ul>
+
+                <img
+                  class="zoomable"
+                  src="./images/flower.png"
+                  alt="Квітка 3x3"
+                />
+              </div>
+            </details>
+
+            <details class="task" name="task1">
+              <summary><h4>Завдання 1.2: Пейзаж</h4></summary>
+
+              <div>
+                <p>
+                  Створимо пейзаж: сонце, дерево та траву. Заповни масив
+                  <span class="accent">landscape</span> розміром
+                  <span class="accent">5 х 5</span> потрібними цифрами,
+                  орієнтуючись на малюнок.
+                </p>
+                <p><strong>Палітра кольорів:</strong></p>
+                <ul>
+                  <li><span class="accent">0</span> — блакитний (небо)</li>
+                  <li><span class="accent">1</span> — жовтий (сонце)</li>
+                  <li>
+                    <span class="accent">2</span> — темно-зелений (листя дерева)
+                  </li>
+                  <li>
+                    <span class="accent">3</span> — коричневий (стовбур дерева)
+                  </li>
+                  <li>
+                    <span class="accent">4</span> — світло-зелений (трава)
+                  </li>
+                </ul>
+
+                <img
+                  class="zoomable"
+                  src="./images/landscape.png"
+                  alt="Пейзаж 5x5"
+                />
+              </div>
+            </details>
+
+            <details class="task" name="task1">
+              <summary><h4>Завдання 1.3: Сердечко (HP)</h4></summary>
+
+              <div>
+                <p>
+                  Намалюємо класичний індикатор "життів" з відеоігор — сердечко!
+                  Тут сітка буде не квадратною: масив
+                  <span class="accent">heart</span> має розмір
+                  <span class="accent">6 рядків та 7 колонок</span>. Повтори
+                  малюнок за допомогою чисел.
+                </p>
+                <p><strong>Палітра кольорів:</strong></p>
+                <ul>
+                  <li>
+                    <span class="accent">0</span> — порожнеча (прозорий фон)
+                  </li>
+                  <li>
+                    <span class="accent">1</span> — червоний (саме сердечко)
+                  </li>
+                </ul>
+
+                <img
+                  class="zoomable"
+                  src="./images/heart.png"
+                  alt="Сердечко 6x7"
+                />
+              </div>
+            </details>
+
+            <hr />
+
+            <h3>Очікуваний результат:</h3>
+            <p>
+              Якщо ти правильно заповниш усі три масиви, твоя сторінка в
+              браузері виглядатиме ось так:
+            </p>
+
+            <img
+              src="./images/task1-result.png"
+              alt="скріншот з результатами виконаних завдань"
+            />
+          </div>
+        </details>
+      </section>
+
+      <!-- 🧩 ЧАСТИНА 2 -->
+
+      <section id="part-2" class="accordion tab-content">
+        <!-- 📚 Теорія 2 -->
+        <!-- indeces in 2d arrays: [y][x] or [row][col] logic
+          using array methods like push and pop with 2d arrays -->
+        <details class="accordion__item" name="section2">
+          <summary class="accordion__header">
+            <h2>
+              <span class="star">✧</span> Теорія:
+              <span class="accent">2D масиви та індекси</span>
+            </h2>
+            <span class="acc-arrow">▶</span>
+          </summary>
+
+          <div class="accordion__content">
+            <h3 id="p2-why">Чому ми це вчимо?</h3>
+            <p>
+              Як комп'ютер розуміє, де на карті знаходиться стіна, а де — рівна
+              дорога? Або як він знає, що зілля лежить саме в третій комірці
+              інвентаря? Усе просто: він "бачить" ці дані як велику таблицю. І
+              щоб дізнатися, що сховано в конкретній клітинці цієї таблиці, або
+              покласти туди новий предмет, комп'ютеру потрібна її точна адреса.
+              У масивах такі адреси називаються
+              <span class="accent">індексами</span>.
+            </p>
+
+            <hr />
+
+            <h3 id="p2-indeces">Координати Y та X</h3>
+            <p>
+              У математиці ми звикли, що координати починаються з X
+              (горизонтальна вісь), а потім йде Y (вертикальна). Але у
+              двовимірних масивах усе навпаки. Щоб знайти клітинку, ми спочатку
+              обираємо <span class="accent">рядок (Y)</span>, а вже потім
+              шукаємо потрібну <span class="accent">колонку (X)</span>. Тому
+              правильний запис завжди виглядає так:
+              <span class="accent"
+                >назва_масиву[номер_рядка][номер_колонки]</span
+              >. Уяви пошук квартири: спершу ти піднімаєшся на потрібний поверх
+              (рядок), і лише потім йдеш коридором до потрібних дверей
+              (колонка).
+            </p>
+
+            <pre><code class="language-javascript">const inventory = [
+  ["⚔️", "🛡️", "🧪"],
+  ["🍎", "🍕", "🍩"],
+  ["👒", "🧣", "🧦"],
+];
+
+console.log("Food:", inventory[1]);
+
+console.log("Donut:", inventory[1][2]);</code></pre>
+
+            <img src="./images/example2.png" alt="console output" />
+
+            <p>
+              Зверни увагу: якщо написати лише
+              <span class="accent">одну пару квадратних дужок</span> з індексом,
+              комп'ютер видасть тобі цілий внутрішній масив, тобто весь рядок. А
+              щоб дістати <span class="accent">один конкретний елемент</span> із
+              цього рядка, потрібно додати другу пару дужок і вказати точну
+              позицію цього елемента в рядку.
+            </p>
+
+            <p class="soft-callout">
+              <strong>✨ Важливо:</strong> відлік індексів у програмуванні
+              завжди <span class="accent">починається з нуля</span>.
+            </p>
+
+            <hr />
+
+            <h3 id="p2-change">Зміна елементів</h3>
+            <p>
+              Читання — це лише половина справи. Найцікавіше починається, коли
+              ми беремо вже створену карту і починаємо її змінювати. Щоб
+              помістити новий предмет у клітинку, ми просто вказуємо її
+              координати і через знак дорівнює присвоюємо їй нове значення. При
+              цьому комп'ютер
+              <span class="accent">перезапише</span> в масиві старе значення на
+              нове.
+            </p>
+
+            <pre><code class="language-javascript">const map = [
+  ["🌱", "🌱"],
+  ["🌱", "🌱"],
+];
+
+map[0][1] = "🌻";
+map[1][0] = "🌷";
+
+console.log(map);</code></pre>
+
+            <img src="./images/example3.png" alt="console output" />
+
+            <hr />
+
+            <h3 id="p2-methods">Методи push та pop</h3>
+            <p>
+              Ми можемо використовувати вже знайомі вам методи
+              <span class="accent">push()</span> та
+              <span class="accent">pop()</span> із двовимірними масивами, але
+              вони працюють на двох рівнях:
+            </p>
+
+            <ul>
+              <li>
+                Якщо застосувати метод до головного масиву, ми додаємо або
+                видаляємо <span class="accent">цілий рядок</span>.
+              </li>
+              <li>
+                Якщо спочатку вибрати рядок за індексом, а потім застосувати
+                метод, то додасться або видалиться
+                <span class="accent">один елемент</span> у цьому рядку.
+              </li>
+            </ul>
+
+            <pre><code class="language-javascript">const garden = [
+  ["🌻", "🌻"],
+  ["🌷", "🌷"],
+];
+
+garden.pop(); // 1. Видаляємо останній рядок
+
+garden.push(["🌸", "🌸", "🌸"]); // 2. Додаємо новий рядок в кінці масиву
+
+garden[0].push("🌻"); // 3. Додаємо одну квітку в 1-й рядок
+
+console.log(garden);</code></pre>
+
+            <img src="./images/example4.png" alt="console output" />
+          </div>
+        </details>
+
+        <!-- 📝 Завдання 2 -->
+        <!-- tilemap puzzles (accessing and changing array elements) -->
+        <details class="accordion__item" name="section2">
+          <summary class="accordion__header">
+            <h2><span class="star">✦</span> Завдання 2</h2>
+            <span class="acc-arrow">▶</span>
+          </summary>
+
+          <div class="accordion__content">
+            <h3>Тематика завдання</h3>
+            <p>
+              Багато популярних ігор, наприклад симулятори фермерства,
+              використовують
+              <span class="accent">тайлмапи (tilemaps)</span> — це коли світ
+              (мапа гри) складається з однакових квадратних плиток (тайлів). У
+              цьому завданні ти працюватимеш із готовою картою світу, збереженою
+              у двовимірному масиві. Твоя мета — прочитати карту, "заселити" її
+              новими об'єктами та навіть розширити за допомогою
+              <span class="accent">методів масиву</span>!
+            </p>
+
+            <hr />
+
+            <h3>Матеріали до завдання</h3>
+
+            <p>
+              Завантаж архів, розпакуй його та відкрий файл
+              <span class="accent">index.html</span>.
+            </p>
+
+            <div class="download-buttons">
+              <a href="task9-2.zip" download class="download-button">
+                <span class="download-arrow">📥</span>
+                <span class="file-name">task9-2.zip</span>
+              </a>
+            </div>
+
+            <hr />
+
+            <h3>Завдання</h3>
+
+            <details class="task" name="task2" open>
+              <summary><h4>Завдання 2.1: Сканування місцевості</h4></summary>
+
+              <div>
+                <p>
+                  На сторінці відображена початкова карта гри, дані про яку
+                  зберігаються в масиві
+                  <span class="accent">worldMap</span>. З допомогою
+                  <span class="accent">індексів</span> ти можеш отримати доступ
+                  до окремих клітинок цього масиву.
+                </p>
+                <ol>
+                  <li>
+                    <span class="accent">Виведи у консоль</span> вміст клітинки,
+                    в якій знаходиться будинок (🏠).
+                  </li>
+                  <li>
+                    <span class="accent">Виведи у консоль</span> вміст клітинки,
+                    в якій знаходиться човен (⛵️).
+                  </li>
+                </ol>
+
+                <p>Очікуваний результат:</p>
+
+                <img
+                  class="zoomable"
+                  src="./images/task2-1.png"
+                  alt="task2.1 result"
+                />
+              </div>
+            </details>
+
+            <details class="task" name="task2">
+              <summary><h4>Завдання 2.2: Забудова світу</h4></summary>
+
+              <div>
+                <p>
+                  А тепер зробимо нашу карту цікавшою! Тобі потрібно
+                  <span class="accent">переписати</span> вміст конкретних
+                  клітинок масиву, використовуючи їх координати (індекси).
+                </p>
+                <ol>
+                  <li>
+                    <span class="accent">Додай</span> на карту два дерева (🌲,
+                    🌳).
+                  </li>
+                  <li>
+                    <span class="accent">Додай</span> на карту три квітки (🌷,
+                    �, �🌹).
+                  </li>
+                  <li>
+                    <span class="accent">Додай</span> на карту котика (🐈).
+                  </li>
+                </ol>
+
+                <p>Приклад результату:</p>
+
+                <img
+                  class="zoomable"
+                  src="./images/task2-2.png"
+                  alt="task2.2 result"
+                />
+              </div>
+            </details>
+          </div>
+        </details>
+      </section>
+
+      <!-- 🧩 ЧАСТИНА 3 -->
+
+      <section id="part-3" class="accordion tab-content">
+        <!-- 📚 Теорія 3 -->
+        <!-- .length attribute (1 - number of rows, 2 - num of elements in a row)
+        iterating over a 2D array (inner loops):
+          a) easy: for of
+          b) when you need indeces: for (let row...) { for let col {} }
+          c) modern: forEach(function) -->
+        <details class="accordion__item" name="section3" id="theory3">
+          <summary class="accordion__header">
+            <h2>
+              <span class="star">✧</span> Теорія:
+              <span class="accent">Ітерація по 2D масиву</span>
+            </h2>
+            <span class="acc-arrow">▶</span>
+          </summary>
+
+          <div class="accordion__content">
+            <h3 id="p3-why">Чому ми це вчимо?</h3>
+            <p>
+              Уяви, що твоя ігрова карта має розмір 100 x 100. Це 10 000
+              клітинок! Ми ж не будемо перевіряти кожну з них вручну, пишучи 10
+              000 разів координати, щоб знайти захований скарб. Нам потрібна
+              автоматизація — ми маємо навчити комп'ютер самостійно "сканувати"
+              весь світ гри. Оскільки двовимірний масив — це масиви всередині
+              масиву, то для його сканування нам знадобиться
+              <span class="accent">цикл усередині іншого циклу</span> (їх ще
+              називають вкладеними циклами).
+            </p>
+
+            <hr />
+
+            <h3 id="p3-length">Властивість length у 2D масивах</h3>
+            <p>
+              Перед тим, як перебирати елементи, комп'ютеру потрібно дізнатися
+              розміри масиву. У звичайному одновимірному масиві властивість
+              <span class="accent">length</span> повертає загальну кількість
+              елементів. А от у двовимірному масиві вона працює на двох рівнях:
+            </p>
+
+            <ul>
+              <li>
+                <span class="accent">масив.length</span> — показує кількість
+                внутрішніх масивів, тобто скільки в масиві є
+                <span class="accent">рядків</span>.
+              </li>
+              <li>
+                <span class="accent">масив[0].length</span> — показує кількість
+                елементів у першому рядку, тобто скільки в масиві є
+                <span class="accent">колонок</span>.
+              </li>
+            </ul>
+
+            <pre><code class="language-javascript">const treasureMap = [
+    ["🏖️", "🌴", "💎", "🌴"],
+    ["🏖️", "🌴", "🏖️", "🏖️"],
+];
+
+console.log("Рядків:", treasureMap.length);
+console.log("Колонок:", treasureMap[0].length);</code></pre>
+
+            <img src="./images/example5.png" alt="console output" />
+
+            <p>
+              Далі розглянемо три різні способи ітерації по двовимірному масиву.
+            </p>
+
+            <hr />
+
+            <h3 id="p3-classic">Спосіб 1: Класичний цикл for</h3>
+
+            <p>
+              Цей спосіб дає найбільший контроль, бо використовує індекси.
+              <span class="accent">Зовнішній цикл</span> перебирає рядки (Y), а
+              <span class="accent">внутрішній</span> — клітинки в рядку (X). Він
+              ідеальний, коли треба не лише знайти предмет, а й знати його точні
+              координати.
+            </p>
+
+            <pre><code class="language-javascript">const fruits = [
+  ["🍎", "🍐", "🍏"],
+  ["🍋", "🍊", "🥝"],
+];</code></pre>
+
+            <pre><code class="language-javascript">// Перебираємо рядки
+for (let row = 0; row < fruits.length; row++) {
+  console.log(`Рядок ${row}:`, fruits[row]);
+}
+
+console.log("\n");</code></pre>
+
+            <pre><code class="language-javascript">// Перебираємо рядки
+for (let row = 0; row < fruits.length; row++) {
+  // Перебираємо клітинки в поточному рядку
+  for (let col = 0; col < fruits[row].length; col++) {
+    console.log(`Рядок ${row}, колонка ${col}:`, fruits[row][col]);
+  }
+}</code></pre>
+
+            <img src="./images/example6.png" alt="console output" />
+
+            <hr />
+
+            <h3 id="p3-forof">Спосіб 2: Цикл for...of</h3>
+
+            <p>
+              Якщо точні координати не потрібні, зручніше використати цикл
+              <span class="accent">for...of</span>. Він читається як звичайна
+              англійська мова і не потребує лічильників чи індексів. Спочатку
+              беремо кожен рядок, а потім — кожну клітинку з нього.
+            </p>
+
+            <pre><code class="language-javascript">// для кожного рядка масиву
+for (let row of fruits) {
+  // для кожної клітинки цього рядка
+  for (let cell of row) {
+    console.log(cell);
+  }
+}</code></pre>
+
+            <img src="./images/example7.png" alt="console output" />
+
+            <hr />
+
+            <h3 id="p3-foreach">Спосіб 3: Метод forEach</h3>
+
+            <p>
+              <span class="accent">forEach</span> — це спеціальна команда,
+              вбудована в масиви. Ми передаємо їй
+              <span class="accent">функцію</span>, яка автоматично виконується
+              для кожного елемента. Спочатку робимо це для кожного рядка, а
+              потім — для кожної клітинки. Це стиль функціонального
+              програмування. Функції можна використовувати звичайні або
+              стрілочні.
+            </p>
+
+            <pre><code class="language-javascript">fruits.forEach(function (row) {
+  row.forEach(function (cell) {
+    console.log(cell);
+  });
+});</code></pre>
+
+            <pre><code class="language-javascript">fruits.forEach((row) => {
+  row.forEach((cell) => {
+    console.log(cell);
+  });
+});</code></pre>
+
+            <img src="./images/example7.png" alt="console output" />
+          </div>
+        </details>
+
+        <!-- 📝 Завдання 3 -->
+        <!-- treasure hunt puzzle (loop over a 2d array) -->
+        <details class="accordion__item" name="section3" id="practice3">
+          <summary class="accordion__header">
+            <h2><span class="star">✦</span> Завдання 3</h2>
+            <span class="acc-arrow">▶</span>
+          </summary>
+
+          <div class="accordion__content">
+            <h3>Тематика практики</h3>
+            <p>
+              У цьому завданні ти застосуєш цикли, щоб автоматично порахувати
+              всі заховані діаманти на острові скарбів. Тобі потрібно буде
+              використати всі три способи ітерації по двовимірному масиву.
+            </p>
+
+            <hr />
+
+            <h3>Підготовка</h3>
+
+            <p>
+              Для цього завдання файли завантажувати не потрібно. Створи на
+              своєму комп'ютері порожній
+              <span class="accent">index.html</span> та підключи до нього файл
+              скрипта.
+            </p>
+
+            <p>Тепер скопіюй цю велику карту скарбів у свій JS-код:</p>
+
+            <pre><code class="language-javascript">const treasureMap = [
+  ["🏖️", "🌴", "🌴", "🏖️", "💎", "🌴"],
+  ["🌴", "💎", "🏖️", "🏖️", "🌴", "🌴"],
+  ["🏖️", "🏖️", "🌴", "💎", "🏖️", "🌴"],
+  ["💎", "🌴", "🌴", "🏖️", "🏖️", "🏖️"],
+  ["🏖️", "🌴", "💎", "🌴", "🌴", "💎"]
+];</code></pre>
+
+            <div class="soft-callout">
+              <h4>💡 Підказка: Як рахувати скарби?</h4>
+              <p>
+                Щоб порахувати кількість діамантів, тобі знадобиться
+                змінна-лічильник. Її обов'язково треба створити
+                <span class="accent">перед</span> початком циклу і присвоїти їй
+                початкове значення <span class="accent">0</span>.
+              </p>
+
+              <p>
+                У самому внутрішньому циклі (коли ти вже дістався до конкретної
+                клітинки), використай перевірку: якщо клітинка дорівнює "💎", то
+                збільши значення лічильника на <span class="accent">1</span>.
+              </p>
+            </div>
+
+            <hr />
+
+            <h3>Завдання</h3>
+
+            <details class="task" name="task3" open>
+              <summary><h4>Завдання 3.1: Класичний пошук</h4></summary>
+
+              <div>
+                <ol>
+                  <li>
+                    Створи змінну-лічильник для першого способу (наприклад,
+                    <code>count1</code>).
+                  </li>
+                  <li>
+                    Напиши <span class="accent">класичний цикл for</span> (з
+                    індексами <code>row</code> та <code>col</code>), який
+                    перебере всю карту <code>treasureMap</code>.
+                  </li>
+                  <li>
+                    Знайди всі діаманти, порахуй їх та виведи результат у
+                    консоль: <br /><em>"Спосіб 1. Знайдено скарбів: ..."</em>
+                  </li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="task" name="task3">
+              <summary><h4>Завдання 3.2: Сучасний мандрівник</h4></summary>
+
+              <div>
+                <ol>
+                  <li>
+                    Створи нову змінну-лічильник (наприклад,
+                    <code>count2</code>).
+                  </li>
+                  <li>
+                    Напиши цикл <span class="accent">for...of</span>, який
+                    перебере кожен рядок, а потім кожну клітинку в рядку.
+                  </li>
+                  <li>
+                    Порахуй діаманти та виведи результат: <br /><em
+                      >"Спосіб 2. Знайдено скарбів: ..."</em
+                    >
+                  </li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="task" name="task3">
+              <summary><h4>Завдання 3.3: Командир forEach</h4></summary>
+
+              <div>
+                <ol>
+                  <li>
+                    Створи третю змінну-лічильник (наприклад,
+                    <code>count3</code>).
+                  </li>
+                  <li>
+                    Використай метод <span class="accent">forEach()</span> для
+                    головного масиву, а потім всередині нього — ще один
+                    <code>forEach()</code> для рядка.
+                  </li>
+                  <li>
+                    Порахуй діаманти та виведи результат: <br /><em
+                      >"Спосіб 3. Знайдено скарбів: ..."</em
+                    >
+                  </li>
+                </ol>
+              </div>
+            </details>
+
+            <hr />
+
+            <h3>Очікуваний результат:</h3>
+            <p>
+              Якщо ти все зробив правильно, усі три способи мають видати
+              однакове число (6), адже карта не змінювалася!
+            </p>
+
+            <img
+              class="zoomable"
+              src="./images/task3-result.png"
+              alt="Скріншот консолі з підрахунком скарбів трьома способами"
+            />
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 WebUniverse — Усі права захищені.</p>
+    </footer>
+
+    <!-- Кнопка для повернення на початок сторінки -->
+    <button
+      id="scrollToTopBtn"
+      class="scroll-to-top"
+      aria-label="Повернутися нагору"
+    >
+      🛸
+    </button>
+  </body>
+</html>

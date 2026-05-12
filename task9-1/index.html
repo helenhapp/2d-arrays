@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Завдання 1: Піксель-арт</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Моя галерея</h1>
+
+    <div id="gallery" class="gallery"></div>
+
+    <script src="./draw.js"></script>
+
+    <script>
+      // ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦
+      // ЗАВДАННЯ 1.1: Квітка (3x3)
+      // ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦
+
+      //   Палітра кольорів
+      const flowerPalette = {
+        0: "transparent", // 0 - прозорий
+        1: "#facc15", // 1 - жовтий (центр)
+        2: "#d946ef", // 2 - рожевий (пелюстки)
+      };
+
+      // 🔸 Допиши цей масив:
+      let flower;
+
+      // ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦
+      // ЗАВДАННЯ 1.2: Пейзаж (5x5)
+      // ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦
+
+      const landscapePalette = {
+        0: "#60a5fa", // 0 - блакитний (небо)
+        1: "#facc15", // 1 - жовтий (сонце)
+        2: "#166534", // 2 - темно-зелений (листя)
+        3: "#78350f", // 3 - коричневий (стовбур)
+        4: "#6bdf69", // 4 - світло-зелений (трава)
+      };
+
+      // 🔸 Допиши цей масив:
+      let landscape;
+
+      // ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦
+      // ЗАВДАННЯ 1.3: Сердечко (6 x 7: 6 рядків, 7 колонок)
+      // ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦
+
+      const heartPalette = {
+        0: "transparent", // 0 - прозорий
+        1: "#ef4444", // 1 - червоний
+      };
+
+      // 🔸 Допиши цей масив:
+      let heart;
+
+      // ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦
+
+      // Малюємо об'єкт, якщо масив заповнений
+      if (flower && flower.length > 0) {
+        drawPixelArt(flower, "Квітка", flowerPalette);
+      }
+      if (landscape && landscape.length > 0) {
+        drawPixelArt(landscape, "Пейзаж", landscapePalette);
+      }
+      if (heart && heart.length > 0) {
+        drawPixelArt(heart, "HP", heartPalette);
+      }
+    </script>
+  </body>
+</html>
