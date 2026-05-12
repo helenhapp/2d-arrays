@@ -425,13 +425,17 @@ const goodFormatting = [
             </p>
 
             <pre><code class="language-javascript">const inventory = [
-  ["⚔️", "🛡️", "🧪"],
-  ["🍎", "🍕", "🍩"],
-  ["👒", "🧣", "🧦"],
+  ["⚔️", "🛡️", "🧪"], // Рядок 0: Спорядження
+  ["🍎", "🍕", "🍩"], // Рядок 1: Їжа
+  ["👒", "🧣", "🧦"], // Рядок 2: Одяг
 ];
 
-console.log("Food:", inventory[1]);
+// Виводимо у консоль весь другий рядок (з індексом 1)
+// Ми ніби відкриваємо тільки одну полицю з їжею
+console.log("Food:", inventory[1]); 
 
+// Дістаємо пончик: спочатку заходимо на полицю [1], 
+// а потім беремо предмет на позиції [2]
 console.log("Donut:", inventory[1][2]);</code></pre>
 
             <img src="./images/example2.png" alt="console output" />
@@ -463,12 +467,16 @@ console.log("Donut:", inventory[1][2]);</code></pre>
               нове.
             </p>
 
-            <pre><code class="language-javascript">const map = [
-  ["🌱", "🌱"],
-  ["🌱", "🌱"],
+            <pre><code class="language-javascript">// Створюємо порожню ділянку 2x2, де скрізь росте трава
+const map = [
+  ["🌱", "🌱"], // Рядок 0 (верхній)
+  ["🌱", "🌱"], // Рядок 1 (нижній)
 ];
 
+// Садимо соняшник: верхній рядок [0], друга клітинка [1]
 map[0][1] = "🌻";
+
+// Садимо тюльпан: нижній рядок [1], перша клітинка [0]
 map[1][0] = "🌷";
 
 console.log(map);</code></pre>
@@ -502,11 +510,14 @@ console.log(map);</code></pre>
   ["🌷", "🌷"],
 ];
 
-garden.pop(); // 1. Видаляємо останній рядок
+// Видаляємо останній рядок
+garden.pop(); 
 
-garden.push(["🌸", "🌸", "🌸"]); // 2. Додаємо новий рядок в кінці масиву
+// Додаємо новий рядок в кінці масиву
+garden.push(["🌸", "🌸", "🌸"]); 
 
-garden[0].push("🌻"); // 3. Додаємо одну квітку в 1-й рядок
+// Додаємо одну квітку в 1-й рядок
+garden[0].push("🌻"); 
 
 console.log(garden);</code></pre>
 
@@ -537,21 +548,19 @@ console.log(garden);</code></pre>
   ["🌾", "🌾"],
 ];
 
-farm.shift(); // 1. Видаляємо перший рядок (корови пішли на пасовище)
-farm.unshift(["🐓", "🐓"]); // 2. Додаємо курей у новий перший рядок
+// Видаляємо перший рядок 
+farm.shift(); 
+
+ // Додаємо курей як новий перший рядок
+farm.unshift(["🐓", "🐓"]);
+
+// Видаляємо курку на початку першого рядка
+farm[0].shift(); 
+
+// Додаємо собаку на початок першого рядка
+farm[0].unshift("🐕"); 
 
 console.log(farm);</code></pre>
-
- <img
-              src="./images/example8.png"
-              alt="результат методів shift та unshift"
-            />
-
-<pre><code class="language-javascript">farm[0].unshift("🐕"); // 3. Додаємо собаку на початок першого рядка
-farm[1].unshift("🚜"); // 4. Додаємо трактор на початок другого рядка
-
-console.log(farm);</code></pre>
-
 
             <img
               src="./images/example9.png"
@@ -567,14 +576,12 @@ console.log(farm);</code></pre>
               <span class="accent">будь-якому місці</span> масиву.
             </p>
 
-            <p>Синтаксис:</p>
             <pre><code class="language-javascript">// для зміни цілого рядка (або кількох рядків):
 масив.splice(індекс_початку, кількість_видалення, нові_елементи);
 
 // для зміни елементів в одному рядку:
 масив[індекс_рядка].splice(індекс_початку, кількість_видалення, нові_елементи);</code></pre>
 
-            <p>Приклад:</p>
             <pre><code class="language-javascript">const forest = [
   ["🌲", "🌲", "🌲", "🌲", "🌲"],
   ["🌲", "🌲", "🌲", "🌲", "🌲"]
@@ -642,9 +649,8 @@ console.log(forest);</code></pre>
 
               <div>
                 <p>
-                  Масив <span class="accent">map</span> (мапа) має 5 рядків
-                  та 5 колонок, і спочатку там лише росте трава і є самотній
-                  будинок.
+                  Масив <span class="accent">map</span> (мапа) має 5 рядків та 5
+                  колонок, і спочатку там лише росте трава і є самотній будинок.
                   <span class="accent">Використай двовимірні індекси</span>, щоб
                   заповнити цю мапу різними елементами (смайликами).
                 </p>
@@ -676,7 +682,7 @@ console.log(forest);</code></pre>
                 <p>
                   У цьому завданні, замість того, щоб змінювати по одній
                   клітинці за раз, ми будемо змінювати цілі рядки за допомогою
-                 <span class="accent">методів масиву</span>.
+                  <span class="accent">методів масиву</span>.
                 </p>
                 <ol>
                   <li>
@@ -690,19 +696,18 @@ console.log(forest);</code></pre>
                   </li>
                   <li>
                     <span class="accent">Ліс.</span> За допомогою спеціального
-                    методу
-                    <span class="accent">видали останній</span> рядок масиву.
-                    Далі, використавши інший метод,
+                    методу <span class="accent">видали останній</span> рядок
+                    масиву. Далі, використавши інший метод,
                     <span class="accent">додай</span> на його місце новий
                     масив-рядок з деревами (🌲):
                     <img src="./images/task2-2-2.png" alt="code result" />
                   </li>
                   <li>
-                    <span class="accent">Тюльпани.</span> Двічі використавши метод
-                    <span class="accent">splice</span>, додай по два тюльпани
-                    (🌷) у <span class="accent">другому</span> та
-                    <span class="accent">четвертому</span> рядках (у єдиних клітинках,
-                    які досі залишилися порожніми):
+                    <span class="accent">Тюльпани.</span> Двічі використавши
+                    метод <span class="accent">splice</span>, додай по два
+                    тюльпани (🌷) у <span class="accent">другому</span> та
+                    <span class="accent">четвертому</span> рядках (у єдиних
+                    клітинках, які досі залишилися порожніми):
                     <img src="./images/task2-2-3.png" alt="code result" />
                   </li>
                 </ol>
