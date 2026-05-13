@@ -48,10 +48,10 @@
 
 // console.log("Колонок:", treasureMap[0].length);
 
-const fruits = [
-  ["🍎", "🍐", "🍏"],
-  ["🍋", "🍊", "🥝"],
-];
+// const fruits = [
+//   ["🍎", "🍐", "🍏"],
+//   ["🍋", "🍊", "🥝"],
+// ];
 
 // // Перебираємо рядки
 // for (let row = 0; row < fruits.length; row++) {
@@ -130,21 +130,43 @@ const fruits = [
  
 // console.log(forest);
 
-const farm = [
-  ["🐄", "🐄"],
-  ["🌾", "🌾"],
+// const farm = [
+//   ["🐄", "🐄"],
+//   ["🌾", "🌾"],
+// ];
+ 
+// // Видаляємо перший рядок 
+// farm.shift(); 
+ 
+//  // Додаємо курей як новий перший рядок
+// farm.unshift(["🐓", "🐓"]);
+ 
+// // Видаляємо курку на початку першого рядка
+// farm[0].shift(); 
+ 
+// // Додаємо собаку на початок першого рядка
+// farm[0].unshift("🐕"); 
+ 
+// console.log(farm);
+
+// для кожного рядка масиву
+// for (let row of fruits) {
+//   console.log(row);
+  
+//   // для кожної клітинки цього рядка
+//   for (let cell of row) {
+//     console.log(cell);
+//   }
+// }
+
+const fruits = [
+  ["🍎", "🍐", "🍏"],
+  ["🍋", "🍊", "🥝"],
 ];
- 
-// Видаляємо перший рядок 
-farm.shift(); 
- 
- // Додаємо курей як новий перший рядок
-farm.unshift(["🐓", "🐓"]);
- 
-// Видаляємо курку на початку першого рядка
-farm[0].shift(); 
- 
-// Додаємо собаку на початок першого рядка
-farm[0].unshift("🐕"); 
- 
-console.log(farm);
+
+fruits.forEach((row, rowIndex) => {
+  row.forEach((cell, colIndex) => {
+    // Тепер ми знаємо і сам фрукт, і його точну адресу
+    console.log(`[${rowIndex}][${colIndex}] = ${cell}`);
+  });
+});

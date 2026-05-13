@@ -142,13 +142,6 @@
 
       <section id="part-1" class="accordion tab-content active show">
         <!-- 📚 Теорія 1 -->
-        <!-- what are 2D arrays? 
-          what are they usually used for in games?
-          basic syntax: const array = [
-            [1, 2, 3],
-            [4, 5, 6],
-            [7, 8, 9],
-          ]  -->
         <details class="accordion__item" name="section1">
           <summary class="accordion__header">
             <h2>
@@ -209,6 +202,36 @@ console.log(matrix);</code></pre>
 
             <hr />
 
+            <h3 id="p1-shapes">Розмір масиву</h3>
+            <p>
+              Насправді, JavaScript дозволяє створювати так звані
+              <span class="accent">"зубчасті" масиви</span>. Це означає, що
+              кожен рядок може мати
+              <span class="accent">різну кількість елементів</span>. Наприклад,
+              у першому рядку може бути 2 числа, а в другому — 5, і це не буде
+              помилкою.
+            </p>
+
+            <pre><code class="language-javascript">const jaggedArray = [
+  [1, 2],
+  [1, 2, 3, 4, 5],
+  [1]
+];</code></pre>
+
+            <p>
+              Але, не у всіх мовах програмування є можливість створювати масиви
+              з рядками різного розміру. Крім того, 2D масиви часто
+              використовуються для створення карти рівнів для ігор (таких як
+              Хрестики-Нулики, Pac-Man, Морський Бій тощо), і зазвичай вони є
+              саме прямокутними або квадратними, а не зубчастими. Тому протягом
+              цього курсу візьмемо за правило
+              <span class="accent"
+                >створювати масиви з рядками однакової довжини</span
+              >.
+            </p>
+
+            <hr />
+
             <h3 id="p1-formatting">Форматування коду</h3>
             <p>
               Для комп'ютера не має значення, чи записаний весь масив у довгий
@@ -219,7 +242,7 @@ console.log(matrix);</code></pre>
               масив записується з нового рядка, строго один під одним.
             </p>
 
-            <pre><code class="language-javascript">const badFormatting = [[0, 1, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 1, 0]];
+            <pre><code class="language-javascript">const badFormatting = [[0,1,1,0],[1,0,0,1],[1,0,0,1],[0,1,1,0]];
 
 const goodFormatting = [
   [0, 1, 1, 0], 
@@ -231,7 +254,6 @@ const goodFormatting = [
         </details>
 
         <!-- 📝 Завдання 1 -->
-        <!-- pixel art puzzles (creating arrays) -->
         <details class="accordion__item" name="section1">
           <summary class="accordion__header">
             <h2><span class="star">✦</span> Завдання 1</h2>
@@ -424,7 +446,7 @@ const goodFormatting = [
               (колонка).
             </p>
 
-            <pre><code class="language-javascript">const inventory = [
+            <pre><code class="language-javascript nocopy">const inventory = [
   ["⚔️", "🛡️", "🧪"], // Рядок 0: Спорядження
   ["🍎", "🍕", "🍩"], // Рядок 1: Їжа
   ["👒", "🧣", "🧦"], // Рядок 2: Одяг
@@ -450,9 +472,16 @@ console.log("Donut:", inventory[1][2]);</code></pre>
             </p>
 
             <p class="soft-callout">
-              <strong>✨ Важливо:</strong> індекси у програмуванні
-              завжди <span class="accent">починаються з нуля</span>.
+              <strong>✨ Важливо:</strong> індекси у програмуванні завжди
+              <span class="accent">починаються з нуля</span>.
             </p>
+
+            <p>
+              Ось як виглядають "адреси" (індекси) кожної клітинки у масиві 3х3:
+            </p>
+            <pre><code class="language-javascript nocopy">[0][0]   [0][1]   [0][2]  // Рядок 0
+[1][0]   [1][1]   [1][2]  // Рядок 1
+[2][0]   [2][1]   [2][2]  // Рядок 2</code></pre>
 
             <hr />
 
@@ -467,7 +496,7 @@ console.log("Donut:", inventory[1][2]);</code></pre>
               нове.
             </p>
 
-            <pre><code class="language-javascript">// Створюємо порожню ділянку 2x2, де скрізь росте трава
+            <pre><code class="language-javascript nocopy">// Створюємо порожню ділянку 2x2, де скрізь росте трава
 const map = [
   ["🌱", "🌱"], // Рядок 0 (верхній)
   ["🌱", "🌱"], // Рядок 1 (нижній)
@@ -543,7 +572,7 @@ console.log(garden);</code></pre>
               </li>
             </ul>
 
-            <pre><code class="language-javascript">const farm = [
+            <pre><code class="language-javascript nocopy">const farm = [
   ["🐄", "🐄"],
   ["🌾", "🌾"],
 ];
@@ -576,13 +605,13 @@ console.log(farm);</code></pre>
               <span class="accent">будь-якому місці</span> масиву.
             </p>
 
-            <pre><code class="language-javascript">// для зміни цілого рядка (або кількох рядків):
+            <pre><code class="language-javascript nocopy">// для зміни цілого рядка (або кількох рядків):
 масив.splice(індекс_початку, кількість_видалення, нові_елементи);
 
 // для зміни елементів в одному рядку:
 масив[індекс_рядка].splice(індекс_початку, кількість_видалення, нові_елементи);</code></pre>
 
-            <pre><code class="language-javascript">const forest = [
+            <pre><code class="language-javascript nocopy">const forest = [
   ["🌲", "🌲", "🌲", "🌲", "🌲"],
   ["🌲", "🌲", "🌲", "🌲", "🌲"]
 ];
@@ -721,11 +750,6 @@ console.log(forest);</code></pre>
 
       <section id="part-3" class="accordion tab-content">
         <!-- 📚 Теорія 3 -->
-        <!-- .length attribute (1 - number of rows, 2 - num of elements in a row)
-        iterating over a 2D array (inner loops):
-          a) easy: for of
-          b) when you need indeces: for (let row...) { for let col {} }
-          c) modern: forEach(function) -->
         <details class="accordion__item" name="section3" id="theory3">
           <summary class="accordion__header">
             <h2>
@@ -790,11 +814,19 @@ console.log("Колонок:", treasureMap[0].length);</code></pre>
             <h3 id="p3-classic">Спосіб 1: Класичний цикл for</h3>
 
             <p>
-              Цей спосіб дає найбільший контроль, бо використовує індекси.
-              <span class="accent">Зовнішній цикл</span> перебирає рядки (Y), а
-              <span class="accent">внутрішній</span> — клітинки в рядку (X). Він
-              ідеальний, коли треба не лише знайти предмет, а й знати його точні
-              координати.
+              Цей спосіб працює як <span class="accent">навігатор</span>. Сам по
+              собі цикл не дістає елементи з масиву, він лише
+              <span class="accent">створює для нас числа-індекси</span> (0, 1,
+              2...).
+            </p>
+            <p>
+              Зовнішній цикл генерує номер рядка (<span class="accent">row</span
+              >), а внутрішній — номер колонки (<span class="accent">col</span
+              >). Потім ми беремо ці номери, ставимо їх у квадратні дужки
+              <span class="accent">fruits[row][col]</span> і кажемо комп'ютеру:
+              <em>"Піди за цими координатами і дістань те, що там лежить"</em>.
+              Це ідеально, коли треба не лише знайти предмет, а й знати його
+              точні координати.
             </p>
 
             <pre><code class="language-javascript">const fruits = [
@@ -805,9 +837,7 @@ console.log("Колонок:", treasureMap[0].length);</code></pre>
             <pre><code class="language-javascript">// Перебираємо рядки
 for (let row = 0; row < fruits.length; row++) {
   console.log(`Рядок ${row}:`, fruits[row]);
-}
-
-console.log("\n");</code></pre>
+}</code></pre>
 
             <pre><code class="language-javascript">// Перебираємо рядки
 for (let row = 0; row < fruits.length; row++) {
@@ -826,12 +856,21 @@ for (let row = 0; row < fruits.length; row++) {
             <p>
               Якщо точні координати не потрібні, зручніше використати цикл
               <span class="accent">for...of</span>. Він читається як звичайна
-              англійська мова і не потребує лічильників чи індексів. Спочатку
-              беремо кожен рядок, а потім — кожну клітинку з нього.
+              англійська мова і не потребує лічильників чи індексів. Цей цикл
+              працює як <span class="accent">магічна рука</span>. Він
+              автоматично, по черзі, витягає з масиву
+              <span class="accent">одразу цілий рядок</span> і кладе його у
+              змінну (яку ми самі назвали <span class="accent">row</span>).
+              Потім внутрішній цикл так само по черзі витягає з цього рядка
+              <span class="accent">конкретне значення</span> (фрукт) і кладе
+              його у змінну <span class="accent">cell</span>. В результаті ми
+              отримуємо сам елемент, але не знаємо, в якій клітинці він лежав.
             </p>
 
             <pre><code class="language-javascript">// для кожного рядка масиву
 for (let row of fruits) {
+  console.log(row);
+
   // для кожної клітинки цього рядка
   for (let cell of row) {
     console.log(cell);
@@ -848,30 +887,60 @@ for (let row of fruits) {
               <span class="accent">forEach</span> — це спеціальна команда,
               вбудована в масиви. Ми передаємо їй
               <span class="accent">функцію</span>, яка автоматично виконується
-              для кожного елемента. Спочатку робимо це для кожного рядка, а
-              потім — для кожної клітинки. Це стиль функціонального
-              програмування. Функції можна використовувати звичайні або
-              стрілочні.
+              <span class="accent">для кожного елемента</span>. Спочатку робимо
+              це для кожного рядка, а потім — для кожної клітинки. Це стиль
+              функціонального програмування. Функції можна використовувати як
+              звичайні, так і стрілочні. За замовчуванням цей метод робить те саме, що й <span class="accent">for...of</span>: 
+              видає нам одразу готове значення (цілий рядок або сам фрукт).
             </p>
 
             <pre><code class="language-javascript">fruits.forEach(function (row) {
+  console.log(row);
+
   row.forEach(function (cell) {
     console.log(cell);
   });
 });</code></pre>
 
             <pre><code class="language-javascript">fruits.forEach((row) => {
+  console.log(row);
+
   row.forEach((cell) => {
     console.log(cell);
   });
 });</code></pre>
 
             <img src="./images/example7.png" alt="console output" />
+
+            <p>
+              Але що робити, якщо під час пошуку нам потрібно дізнатися ще й
+              точні координати предмета? У методу
+              <span class="accent">forEach</span> є прихована суперсила! Крім
+              самого елемента (рядка чи клітинки), він може автоматично
+              передавати нам ще й його <span class="accent">індекс</span>.
+            </p>
+
+            <p>
+              Для цього достатньо просто додати другу змінну в круглі дужки
+              нашої функції (наприклад, <span class="accent">rowIndex</span> для
+              номера рядка та <span class="accent">colIndex</span> для номера
+              колонки). Тоді цей спосіб стає таким же потужним, як і класичний
+              цикл <span class="accent">for</span>!
+            </p>
+
+            <pre><code class="language-javascript">fruits.forEach((row, rowIndex) => {
+  row.forEach((cell, colIndex) => {
+    // Тепер ми знаємо і сам фрукт, і його точну адресу
+    console.log(`[${rowIndex}][${colIndex}] = ${cell}`);
+  });
+});</code></pre>
+
+<img src="./images/example11.png" alt="console output" />
+
           </div>
         </details>
 
         <!-- 📝 Завдання 3 -->
-        <!-- treasure hunt puzzle (loop over a 2d array) -->
         <details class="accordion__item" name="section3" id="practice3">
           <summary class="accordion__header">
             <h2><span class="star">✦</span> Завдання 3</h2>
