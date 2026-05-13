@@ -116,13 +116,25 @@
 
       <p class="topic">Двовимірні масиви</p>
 
-      <!-- Короткий опис теми і мети заняття -->
+      <!-- Короткий зміст заняття -->
       <section class="soft-callout objective">
         <span class="accent">Зміст уроку:</span>
         <ul>
-          <li>Частина 1: ...</li>
-          <li>Частина 2: ...</li>
-          <li>Частина 3: ...</li>
+          <li>
+            <strong>Частина 1: Знайомство з 2D масивами.</strong> Що це таке, принцип вкладеності, розміри масиву, і як правильно форматувати такий код.
+          </li>
+          <li>
+            <strong>Частина 2: Індекси та методи.</strong> Робота з двовимірними
+            координатами (Y та X), зміна значень елементів, та застосування
+            методів (push, pop, shift,
+            unshift, splice) на різних рівнях масиву.
+          </li>
+          <li>
+            <strong>Частина 3: Ітерація (сканування).</strong> Властивість
+            length у 2D масивах та розбір трьох способів перебору
+            даних: класичний цикл for, цикл
+            for...of та метод forEach.
+          </li>
         </ul>
       </section>
 
@@ -190,7 +202,7 @@
               комами.
             </p>
 
-            <pre><code class="language-javascript">const matrix = [
+            <pre><code class="language-javascript nocopy">const matrix = [
   [1, 2, 3], // рядок 1
   [4, 5, 6], // рядок 2
   [7, 8, 9], // рядок 3
@@ -212,7 +224,7 @@ console.log(matrix);</code></pre>
               помилкою.
             </p>
 
-            <pre><code class="language-javascript">const jaggedArray = [
+            <pre><code class="language-javascript nocopy">const jaggedArray = [
   [1, 2],
   [1, 2, 3, 4, 5],
   [1]
@@ -242,7 +254,7 @@ console.log(matrix);</code></pre>
               масив записується з нового рядка, строго один під одним.
             </p>
 
-            <pre><code class="language-javascript">const badFormatting = [[0,1,1,0],[1,0,0,1],[1,0,0,1],[0,1,1,0]];
+            <pre><code class="language-javascript nocopy">const badFormatting = [[0,1,1,0],[1,0,0,1],[1,0,0,1],[0,1,1,0]];
 
 const goodFormatting = [
   [0, 1, 1, 0], 
@@ -319,10 +331,7 @@ const goodFormatting = [
                   <li><span class="accent">2</span> — рожевий (пелюстки)</li>
                 </ul>
 
-                <img
-                  src="./images/flower.png"
-                  alt="Квітка 3x3"
-                />
+                <img src="./images/flower.png" alt="Квітка 3x3" />
               </div>
             </details>
 
@@ -351,10 +360,7 @@ const goodFormatting = [
                   </li>
                 </ul>
 
-                <img
-                  src="./images/landscape.png"
-                  alt="Пейзаж 5x5"
-                />
+                <img src="./images/landscape.png" alt="Пейзаж 5x5" />
               </div>
             </details>
 
@@ -379,10 +385,7 @@ const goodFormatting = [
                   </li>
                 </ul>
 
-                <img
-                  src="./images/heart.png"
-                  alt="Сердечко 6x7"
-                />
+                <img src="./images/heart.png" alt="Сердечко 6x7" />
               </div>
             </details>
 
@@ -532,7 +535,7 @@ console.log(map);</code></pre>
               </li>
             </ul>
 
-            <pre><code class="language-javascript">const garden = [
+            <pre><code class="language-javascript nocopy">const garden = [
   ["🌻", "🌻"],
   ["🌷", "🌷"],
 ];
@@ -753,7 +756,7 @@ console.log(forest);</code></pre>
 
       <section id="part-3" class="accordion tab-content">
         <!-- 📚 Теорія 3 -->
-        <details class="accordion__item" name="section3" id="theory3">
+        <details class="accordion__item" name="section3">
           <summary class="accordion__header">
             <h2>
               <span class="star">✧</span> Теорія:
@@ -798,7 +801,7 @@ console.log(forest);</code></pre>
               </li>
             </ul>
 
-            <pre><code class="language-javascript">const treasureMap = [
+            <pre><code class="language-javascript nocopy">const treasureMap = [
     ["🏖️", "🌴", "💎", "🌴"],
     ["🏖️", "🌴", "🏖️", "🏖️"],
 ];
@@ -832,17 +835,17 @@ console.log("Колонок:", treasureMap[0].length);</code></pre>
               точні координати.
             </p>
 
-            <pre><code class="language-javascript">const fruits = [
+            <pre><code class="language-javascript nocopy">const fruits = [
   ["🍎", "🍐", "🍏"],
   ["🍋", "🍊", "🥝"],
 ];</code></pre>
 
-            <pre><code class="language-javascript">// Перебираємо рядки
+            <pre><code class="language-javascript nocopy">// Перебираємо рядки
 for (let row = 0; row < fruits.length; row++) {
   console.log(`Рядок ${row}:`, fruits[row]);
 }</code></pre>
 
-            <pre><code class="language-javascript">// Перебираємо рядки
+            <pre><code class="language-javascript nocopy">// Перебираємо рядки
 for (let row = 0; row < fruits.length; row++) {
   // Перебираємо клітинки в поточному рядку
   for (let col = 0; col < fruits[row].length; col++) {
@@ -870,7 +873,7 @@ for (let row = 0; row < fruits.length; row++) {
               отримуємо сам елемент, але не знаємо, в якій клітинці він лежав.
             </p>
 
-            <pre><code class="language-javascript">// для кожного рядка масиву
+            <pre><code class="language-javascript nocopy">// для кожного рядка масиву
 for (let row of fruits) {
   console.log(row);
 
@@ -898,7 +901,7 @@ for (let row of fruits) {
               готове значення (цілий рядок або сам фрукт).
             </p>
 
-            <pre><code class="language-javascript">fruits.forEach(function (row) {
+            <pre><code class="language-javascript nocopy">fruits.forEach(function (row) {
   console.log(row);
 
   row.forEach(function (cell) {
@@ -906,7 +909,7 @@ for (let row of fruits) {
   });
 });</code></pre>
 
-            <pre><code class="language-javascript">fruits.forEach((row) => {
+            <pre><code class="language-javascript nocopy">fruits.forEach((row) => {
   console.log(row);
 
   row.forEach((cell) => {
@@ -932,7 +935,7 @@ for (let row of fruits) {
               цикл <span class="accent">for</span>!
             </p>
 
-            <pre><code class="language-javascript">fruits.forEach((row, rowIndex) => {
+            <pre><code class="language-javascript nocopy">fruits.forEach((row, rowIndex) => {
   row.forEach((cell, colIndex) => {
     // Тепер ми знаємо і сам фрукт, і його точну адресу
     console.log(`[${rowIndex}][${colIndex}] = ${cell}`);
@@ -944,7 +947,7 @@ for (let row of fruits) {
         </details>
 
         <!-- 📝 Завдання 3 -->
-        <details class="accordion__item" name="section3" id="practice3">
+        <details class="accordion__item" name="section3">
           <summary class="accordion__header">
             <h2><span class="star">✦</span> Завдання 3</h2>
             <span class="acc-arrow">▶</span>
@@ -953,9 +956,11 @@ for (let row of fruits) {
           <div class="accordion__content">
             <h3>Тематика практики</h3>
             <p>
-              У цьому завданні ти застосуєш цикли, щоб автоматично порахувати
-              всі заховані діаманти на острові скарбів. Тобі потрібно буде
-              використати всі три способи ітерації по двовимірному масиву.
+              Час застосувати знання на практиці! У цьому завданні ти
+              проаналізуєш карту острова скарбів. Тобі доведеться дізнатися
+              точні координати всіх діамантів, порахувати їхню загальну
+              кількість, а також знайти загублену корону. Для цього ти
+              використаєш усі три способи ітерації по двовимірному масиву.
             </p>
 
             <hr />
@@ -966,32 +971,24 @@ for (let row of fruits) {
               Для цього завдання файли завантажувати не потрібно. Створи на
               своєму комп'ютері порожній
               <span class="accent">index.html</span> та підключи до нього файл
-              скрипта.
+              скрипта. Тепер скопіюй цю велику карту скарбів у свій JS-код:
             </p>
-
-            <p>Тепер скопіюй цю велику карту скарбів у свій JS-код:</p>
 
             <pre><code class="language-javascript">const treasureMap = [
   ["🏖️", "🌴", "🌴", "🏖️", "💎", "🌴"],
   ["🌴", "💎", "🏖️", "🏖️", "🌴", "🌴"],
-  ["🏖️", "🏖️", "🌴", "💎", "🏖️", "🌴"],
+  ["🏖️", "🏖️", "👑", "💎", "🏖️", "🌴"],
   ["💎", "🌴", "🌴", "🏖️", "🏖️", "🏖️"],
   ["🏖️", "🌴", "💎", "🌴", "🌴", "💎"]
 ];</code></pre>
 
             <div class="soft-callout">
-              <h4>💡 Підказка: Як рахувати скарби?</h4>
+              <h4>💡 Підказка: Як перевіряти скарби?</h4>
               <p>
-                Щоб порахувати кількість діамантів, тобі знадобиться
-                змінна-лічильник. Її обов'язково треба створити
-                <span class="accent">перед</span> початком циклу і присвоїти їй
-                початкове значення <span class="accent">0</span>.
-              </p>
-
-              <p>
-                У самому внутрішньому циклі (коли ти вже дістався до конкретної
-                клітинки), використай перевірку: якщо клітинка дорівнює "💎", то
-                збільши значення лічильника на <span class="accent">1</span>.
+                Незалежно від способу перебору, у внутрішньому циклі (коли ти
+                вже дістався до конкретної клітинки) використовуй
+                <span class="accent">if</span>, щоб перевірити, чи лежить в
+                клітинці скарб.
               </p>
             </div>
 
@@ -1000,43 +997,51 @@ for (let row of fruits) {
             <h3>Завдання</h3>
 
             <details class="task" name="task3" open>
-              <summary><h4>Завдання 3.1: Класичний пошук</h4></summary>
+              <summary>
+                <h4>Завдання 3.1: Точні координати (Спосіб 1)</h4>
+              </summary>
 
               <div>
                 <ol>
                   <li>
-                    Створи змінну-лічильник для першого способу (наприклад,
-                    <code>count1</code>).
+                    Напиши
+                    <span class="accent">класичний подвійний цикл for</span> (з
+                    індексами <span class="accent">row</span> та
+                    <span class="accent">col</span>), який перебере всю карту
+                    <span class="accent">treasureMap</span>.
                   </li>
                   <li>
-                    Напиши <span class="accent">класичний цикл for</span> (з
-                    індексами <code>row</code> та <code>col</code>), який
-                    перебере всю карту <code>treasureMap</code>.
-                  </li>
-                  <li>
-                    Знайди всі діаманти, порахуй їх та виведи результат у
-                    консоль: <br /><em>"Спосіб 1. Знайдено скарбів: ..."</em>
+                    Якщо в клітинці лежить діамант (💎), виведи у консоль
+                    повідомлення з його координатами: <br />
+                    <em>"Діамант знайдено! Рядок: ..., колонка: ..."</em>
                   </li>
                 </ol>
               </div>
             </details>
 
             <details class="task" name="task3">
-              <summary><h4>Завдання 3.2: Сучасний мандрівник</h4></summary>
+              <summary>
+                <h4>Завдання 3.2: Підрахунок запасів (Спосіб 2)</h4>
+              </summary>
 
               <div>
                 <ol>
                   <li>
-                    Створи нову змінну-лічильник (наприклад,
-                    <code>count2</code>).
+                    Створи змінну-лічильник (наприклад,
+                    <span class="accent">diamondsCount</span>) із початковим
+                    значенням <span class="accent">0</span>.
                   </li>
                   <li>
-                    Напиши цикл <span class="accent">for...of</span>, який
-                    перебере кожен рядок, а потім кожну клітинку в рядку.
+                    Напиши подвійний цикл
+                    <span class="accent">for...of</span> (спочатку дістаємо
+                    <span class="accent">row</span>, потім
+                    <span class="accent">cell</span>).
                   </li>
+                  <li>Якщо знаходиш діамант (💎), збільшуй лічильник на 1.</li>
                   <li>
-                    Порахуй діаманти та виведи результат: <br /><em
-                      >"Спосіб 2. Знайдено скарбів: ..."</em
+                    Після завершення <strong>обох</strong> циклів виведи
+                    результат у консоль: <br /><em
+                      >"Усього знайдено діамантів: ..."</em
                     >
                   </li>
                 </ol>
@@ -1044,23 +1049,26 @@ for (let row of fruits) {
             </details>
 
             <details class="task" name="task3">
-              <summary><h4>Завдання 3.3: Командир forEach</h4></summary>
+              <summary><h4>Завдання 3.3: Пошук Корони (Спосіб 3)</h4></summary>
 
               <div>
+                <p>
+                  Ми знаємо, що десь на острові захована корона (👑), і нам
+                  терміново потрібні її координати!
+                </p>
                 <ol>
-                  <li>
-                    Створи третю змінну-лічильник (наприклад,
-                    <code>count3</code>).
-                  </li>
                   <li>
                     Використай метод <span class="accent">forEach()</span> для
                     головного масиву, а потім всередині нього — ще один
-                    <code>forEach()</code> для рядка.
+                    <span class="accent">forEach()</span> для рядка.
+                    <strong>Обов'язково</strong> передай у функції другі
+                    параметри для індексів (наприклад,
+                    <span class="accent">rowIndex</span> та
+                    <span class="accent">colIndex</span>).
                   </li>
                   <li>
-                    Порахуй діаманти та виведи результат: <br /><em
-                      >"Спосіб 3. Знайдено скарбів: ..."</em
-                    >
+                    Якщо знаходиш корону (👑), виведи у консоль її точну адресу:
+                    <br /><em>"Корона захована тут: рядок ..., колонка ..."</em>
                   </li>
                 </ol>
               </div>
@@ -1069,15 +1077,10 @@ for (let row of fruits) {
             <hr />
 
             <h3>Очікуваний результат:</h3>
-            <p>
-              Якщо ти все зробив правильно, усі три способи мають видати
-              однакове число (6), адже карта не змінювалася!
-            </p>
 
             <img
-              class="zoomable"
               src="./images/task3-result.png"
-              alt="Скріншот консолі з підрахунком скарбів трьома способами"
+              alt="Скріншот консолі з координатами діамантів, їх кількістю та знайденою короною"
             />
           </div>
         </details>

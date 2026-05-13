@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3 solution</title>
+  </head>
+
+  <body>
+    <script>
+      // Наша карта острова скарбів
+      const treasureMap = [
+        ["🏖️", "🌴", "🌴", "🏖️", "💎", "🌴"],
+        ["🌴", "💎", "🏖️", "🏖️", "🌴", "🌴"],
+        ["🏖️", "🏖️", "👑", "💎", "🏖️", "🌴"],
+        ["💎", "🌴", "🌴", "🏖️", "🏖️", "🏖️"],
+        ["🏖️", "🌴", "💎", "🌴", "🌴", "💎"],
+      ];
+
+      // ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦
+      // ЗАВДАННЯ 3.1: Точні координати (Класичний for)
+      // ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦
+
+      for (let row = 0; row < treasureMap.length; row++) {
+        for (let col = 0; col < treasureMap[row].length; col++) {
+          // Перевіряємо кожну клітинку на наявність діаманта
+          if (treasureMap[row][col] === "💎") {
+            console.log(`Діамант знайдено! Рядок: ${row}, колонка: ${col}`);
+          }
+        }
+      }
+
+    //   console.log("------------------"); // Розділювач для красивої консолі
+
+      // ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦
+      // ЗАВДАННЯ 3.2: Підрахунок запасів (Цикл for...of)
+      // ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦
+
+      // Обов'язково створюємо лічильник ПЕРЕД початком циклу
+      let diamondsCount = 0;
+
+      for (let row of treasureMap) {
+        for (let cell of row) {
+          if (cell === "💎") {
+            // Збільшуємо лічильник на 1, якщо знайшли діамант
+            diamondsCount++;
+          }
+        }
+      }
+
+      // Виводимо загальну кількість після завершення обох циклів
+      console.log(`Усього знайдено діамантів: ${diamondsCount}`);
+
+    //   console.log("------------------");
+
+      // ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦
+      // ЗАВДАННЯ 3.3: Пошук Корони (Метод forEach)
+      // ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦ - ✦
+
+      // Додаємо другі параметри (rowIndex та colIndex), щоб знати адресу
+      treasureMap.forEach((row, rowIndex) => {
+        row.forEach((cell, colIndex) => {
+          if (cell === "👑") {
+            console.log(
+              `Корона захована тут: рядок ${rowIndex}, колонка ${colIndex}`,
+            );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
