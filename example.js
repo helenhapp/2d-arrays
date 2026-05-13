@@ -159,14 +159,22 @@
 //   }
 // }
 
-const fruits = [
-  ["🍎", "🍐", "🍏"],
-  ["🍋", "🍊", "🥝"],
+// const fruits = [
+//   ["🍎", "🍐", "🍏"],
+//   ["🍋", "🍊", "🥝"],
+// ];
+
+// fruits.forEach((row, rowIndex) => {
+//   row.forEach((cell, colIndex) => {
+//     // Тепер ми знаємо і сам фрукт, і його точну адресу
+//     console.log(`[${rowIndex}][${colIndex}] = ${cell}`);
+//   });
+// });
+
+const map = [
+  ["👾", "🏡", "🍏"],
+  ["🌱", "🍕", "🛸"]
+  ["🍩", "🌻", "✨"]
 ];
 
-fruits.forEach((row, rowIndex) => {
-  row.forEach((cell, colIndex) => {
-    // Тепер ми знаємо і сам фрукт, і його точну адресу
-    console.log(`[${rowIndex}][${colIndex}] = ${cell}`);
-  });
-});
+console.log(map[1][1]);
