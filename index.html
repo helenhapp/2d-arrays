@@ -574,7 +574,7 @@ console.log(garden);</code></pre>
             <h3 id="p2-shift-unshift">Методи shift та unshift</h3>
             <p>
               Ці методи працюють схоже на <span class="accent">push</span> та
-              <span class="a">pop</span>, але вони змінюють масив
+              <span class="accent">pop</span>, але вони змінюють масив
               <span class="accent">на самому початку</span>:
             </p>
 
@@ -653,8 +653,8 @@ console.log(forest);</code></pre>
               <p>1. Який саме смайлик виведеться в консоль і чому?</p>
               <pre><code class="language-javascript">const map = [
   ["👾", "🏡", "🍏"],
-  ["🌱", "🍕", "🛸"]
-  ["🍩", "🌻", "✨"]
+  ["🌱", "🍕", "🛸"],
+  ["🍩", "🌻", "✨"],
 ];
 
 console.log(map[1][1]);</code></pre>
@@ -676,9 +676,9 @@ inventory.push("🍰");</code></pre>
               <details class="answer">
                 <summary>Відповідь</summary>
                 <p class="accent">
-                  Цей код додає меч як окремий елемент у головний масив, а не
-                  всередину рядка з яблуками. Щоб додати меч саме в перший
-                  рядок, потрібно було звернутися до нього за індексом:
+                  Цей код додає торт як окремий елемент у головний масив, а не
+                  всередину рядка з яблуками. Щоб додати його саме в перший
+                  рядок, потрібно було звернутися до рядка за індексом:
                   inventory[0].push("🍰");
                 </p>
               </details>
