@@ -25,7 +25,7 @@
         for (let col = 0; col < treasureMap[row].length; col++) {
           // Перевіряємо кожну клітинку на наявність діаманта
           if (treasureMap[row][col] === "💎") {
-            console.log(`Діамант знайдено! Рядок: ${row}, колонка: ${col}`);
+            console.log(`Діамант знайдено! Рядок: ${row}, стовпець: ${col}`);
           }
         }
       }
@@ -62,7 +62,7 @@
         row.forEach((cell, colIndex) => {
           if (cell === "👑") {
             console.log(
-              `Корона захована тут: рядок ${rowIndex}, колонка ${colIndex}`,
+              `Корона захована тут: рядок ${rowIndex}, стовпець ${colIndex}`,
             );
           }
         });
