@@ -144,7 +144,7 @@
         <button class="tab-btn active" data-target="part-1">Частина 1</button>
         <button class="tab-btn" data-target="part-2">Частина 2</button>
         <button class="tab-btn" data-target="part-3">Частина 3</button>
-        <!-- <button class="tab-btn" data-target="part-4">Додатково</button> -->
+        <button class="tab-btn" data-target="part-4">Додатково</button>
       </div>
 
       <!-- 🧩 ЧАСТИНА 1 -->
@@ -1185,6 +1185,424 @@ console.log(board[0].length);</code></pre>
               src="./images/task3-result.png"
               alt="Скріншот консолі з координатами діамантів, їх кількістю та знайденою короною"
             />
+          </div>
+        </details>
+      </section>
+
+      <!-- 🧩 ЧАСТИНА 4 -->
+      <section id="part-4" class="accordion tab-content">
+        <!-- Таблиця -->
+        <details class="accordion__item" name="section4">
+          <summary class="accordion__header">
+            <h2><span class="star">✧</span> Таблиця</h2>
+            <span class="acc-arrow">▶</span>
+          </summary>
+
+          <div class="accordion__content">
+            <div class="tablecontainer">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Поняття</th>
+                    <th>Опис</th>
+                    <th>Приклад</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="accent">2D Масив</span>
+                    </td>
+                    <td>
+                      Масив, що містить всередині інші масиви. 
+                    </td>
+                    <td>
+                      <pre><code class="language-javascript nocopy">const map = [
+  ["🌱", "🌱"],
+  ["🌻", "🌻"]
+];</code></pre>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <span class="accent">Індекси [y][x]</span>
+                    </td>
+                    <td>
+                      Координати елемента. Спочатку вказуємо
+                      <b>рядок (Y)</b>, а потім <b>колонку (X)</b>.
+                    </td>
+                    <td>
+                      <pre><code class="language-javascript nocopy">// Змінюємо елемент у 2-му рядку, 1-й колонці
+map[1][0] = "🌷";
+
+// Читаємо елемент
+console.log(map[0][1]);</code></pre>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <span class="accent">push()</span> та
+                      <span class="accent">pop()</span>
+                    </td>
+                    <td>
+                      Робота з <b>кінцем</b> масиву. push додає
+                      елемент або рядок, а pop — видаляє.
+                    </td>
+                    <td>
+                      <pre><code class="language-javascript nocopy">// Видаляє останній рядок карти
+map.pop(); 
+
+// Додає яблуко в кінець першого рядка
+map[0].push("🍎");</code></pre>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <span class="accent">shift()</span> та
+                      <span class="accent">unshift()</span>
+                    </td>
+                    <td>
+                      Робота з <b>початком</b> масиву. shift видаляє
+                       елемент або рядок, а unshift — додає.
+                    </td>
+                    <td>
+                      <pre><code class="language-javascript nocopy">// Видаляє найперший рядок
+map.shift(); 
+
+// Додає 🌻 на початок першого рядка
+map[0].unshift("🌻");</code></pre>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <span class="accent">splice()</span>
+                    </td>
+                    <td>
+                      Дозволяє заміняти, видаляти або
+                      вставляти елементи в будь-якому місці.
+                    </td>
+                    <td>
+                      <pre><code class="language-javascript nocopy">// У 1-му рядку, починаючи з 2-ї позиції, 
+// видаляємо 1 елемент і ставимо 2 гриби:
+map[0].splice(2, 1, "🍄", "🍄");</code></pre>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <span class="accent">Властивість length</span>
+                    </td>
+                    <td>
+                      Показує кількість рядків (для головного масиву) або
+                      кількість колонок (для внутрішнього рядка).
+                    </td>
+                    <td>
+                      <pre><code class="language-javascript nocopy">let rowsCount = map.length;
+let colsCount = map[0].length;</code></pre>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <span class="accent">Класичний цикл for</span>
+                    </td>
+                    <td>
+                      Подвійний цикл для сканування. Коли
+                      потрібні точні координати елементів.
+                    </td>
+                    <td>
+                      <pre><code class="language-javascript nocopy">for (let r = 0; r < map.length; r++) {
+  for (let c = 0; c < map[r].length; c++) {
+    console.log(map[r][c]);
+  }
+}</code></pre>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <span class="accent">Цикл for...of</span>
+                    </td>
+                    <td>
+                      Швидкий перебір без індексів. По черзі витягує
+                      значення елементів.
+                    </td>
+                    <td>
+                      <pre><code class="language-javascript nocopy">for (let row of map) {
+  for (let cell of row) {
+    console.log(cell);
+  }
+}</code></pre>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <span class="accent">Метод forEach()</span>
+                    </td>
+                    <td>
+                      Метод, що може передавати і сам предмет
+                      (значення), і його координати (індекси).
+                    </td>
+                    <td>
+                      <pre><code class="language-javascript nocopy">map.forEach((row, rowIndex) => {
+  row.forEach((cell, colIndex) => {
+    console.log(`[${rowIndex}][${colIndex}]: ${cell}`);
+  });
+});</code></pre>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <!-- ДЗ -->
+        <details class="accordion__item" name="section4">
+          <summary class="accordion__header">
+            <h2>
+              <span class="star">✦</span>
+              <span class="accent">Домашнє завдання</span>
+            </h2>
+            <span class="acc-arrow">▶</span>
+          </summary>
+
+          <div class="accordion__content">
+            <form id="homework-form" novalidate>
+              <div class="student-info">
+                <label for="student-name"
+                  ><strong>Прізвище та ім'я:</strong></label
+                >
+                <input
+                  type="text"
+                  id="student-name"
+                  name="student_name"
+                  placeholder="Твоє прізвище та ім'я..."
+                  required
+                />
+              </div>
+
+              <fieldset class="test-question">
+                <legend>
+                  1. Як звернутися до елемента, що знаходиться у 2-му рядку та
+                  3-й колонці масиву map?
+                </legend>
+                <label class="test-label">
+                  <input
+                    type="radio"
+                    class="test-radio"
+                    name="q1"
+                    value="map[2][3]"
+                  />
+                  map[2][3]
+                </label>
+                <label class="test-label">
+                  <input
+                    type="radio"
+                    class="test-radio"
+                    name="q1"
+                    value="map[1][2]"
+                  />
+                  map[1][2]
+                </label>
+                <label class="test-label">
+                  <input
+                    type="radio"
+                    class="test-radio"
+                    name="q1"
+                    value="map[3][2]"
+                  />
+                  map[3][2]
+                </label>
+                <label class="test-label">
+                  <input
+                    type="radio"
+                    class="test-radio"
+                    name="q1"
+                    value="map[2][1]"
+                  />
+                  map[2][1]
+                </label>
+              </fieldset>
+
+              <fieldset class="test-question">
+                <legend>
+                  2. Який метод дозволяє додати новий рядок у САМИЙ ПОЧАТОК
+                  двовимірного масиву?
+                </legend>
+                <label class="test-label">
+                  <input
+                    type="radio"
+                    class="test-radio"
+                    name="q3"
+                    value="push()"
+                  />
+                  push()
+                </label>
+                <label class="test-label">
+                  <input
+                    type="radio"
+                    class="test-radio"
+                    name="q3"
+                    value="shift()"
+                  />
+                  shift()
+                </label>
+                <label class="test-label">
+                  <input
+                    type="radio"
+                    class="test-radio"
+                    name="q3"
+                    value="unshift()"
+                  />
+                  unshift()
+                </label>
+                <label class="test-label">
+                  <input
+                    type="radio"
+                    class="test-radio"
+                    name="q3"
+                    value="pop()"
+                  />
+                  pop()
+                </label>
+              </fieldset>
+
+              <fieldset class="test-question">
+                <legend>
+                  3. Які з цих способів підходять для автоматичного сканування
+                  (перебору) всіх клітинок у 2D масиві? (Обери усі правильні)
+                </legend>
+                <label class="test-label">
+                  <input
+                    type="checkbox"
+                    class="test-checkbox"
+                    name="q2"
+                    value="Класичний подвійний цикл for"
+                  />
+                  Класичний подвійний цикл for
+                </label>
+                <label class="test-label">
+                  <input
+                    type="checkbox"
+                    class="test-checkbox"
+                    name="q2"
+                    value="Подвійний цикл for...in"
+                  />
+                  Подвійний цикл for...in
+                </label>
+                <label class="test-label">
+                  <input
+                    type="checkbox"
+                    class="test-checkbox"
+                    name="q2"
+                    value="Вкладені методи forEach()"
+                  />
+                  Вкладені методи forEach()
+                </label>
+                <label class="test-label">
+                  <input
+                    type="checkbox"
+                    class="test-checkbox"
+                    name="q2"
+                    value="Подвійний цикл for...of"
+                  />
+                  Подвійний цикл for...of
+                </label>
+              </fieldset>
+
+              <fieldset class="test-question">
+                <legend>4. Що виведеться у консоль після виконання цього коду?</legend>
+                <pre><code class="language-javascript">const level = [
+  ["🌱", "🌱", "🌱", "🌱"],
+  ["🌱", "🏡", "🌻", "🌻"]
+];
+console.log(level.length);</code></pre>
+                <textarea
+                  aria-label="Відповідь на питання 4"
+                  class="test-textarea"
+                  name="q4"
+                  placeholder="Напиши відповідь тут..."
+                ></textarea>
+              </fieldset>
+
+              
+
+              <fieldset class="test-question">
+                <legend>
+                  5. Використовуючи подвійний цикл (будь-який на твій вибір),
+                  порахуй суму ВСІХ чисел у цьому двовимірному масиві:
+                </legend>
+
+                <div class="custom-editor-wrapper" id="hw-js-editor">
+                  <div class="editor-header">
+                    <span class="editor-title">JavaScript</span>
+                    <div class="editor-actions">
+                      <button
+                        type="button"
+                        class="reset-btn"
+                        title="Повернути початковий код"
+                      >
+                        🔄
+                      </button>
+                      <button
+                        type="button"
+                        class="run-btn"
+                        title="Запустити код"
+                      >
+                        ▶️
+                      </button>
+                    </div>
+                  </div>
+                  <textarea
+                    aria-label="Редактор JS коду"
+                    class="custom-editor-input"
+                    spellcheck="false"
+                    name="hw_js_code"
+                  >
+const numbers = [
+  [1, 2, 3],
+  [4, 5, 6]
+];
+
+let sum = 0; 
+
+// Напиши свій код нижче:
+
+
+console.log(`Cума = ${sum}`);</textarea
+                  >
+                  <pre class="custom-editor-output">Очікування запуску...</pre>
+                </div>
+              </fieldset>
+
+              <div class="homework-actions">
+                <button type="button" id="save-hw-btn" class="submit-btn">
+                  Зберегти як .txt
+                </button>
+                <button type="button" id="copy-hw-btn" class="copy-btn">
+                  Скопіювати текст
+                </button>
+                <button
+                  type="button"
+                  id="clear-hw-btn"
+                  class="reset-btn-hw"
+                  title="Видалити всі відповіді"
+                >
+                  Очистити
+                </button>
+              </div>
+
+              <div id="hw-error-msg" class="error-text">
+                Будь ласка, заповни усі питання!
+              </div>
+            </form>
           </div>
         </details>
       </section>
