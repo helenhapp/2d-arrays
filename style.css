@@ -1022,6 +1022,9 @@ details.task[open] summary::before {
 [data-theme="dark"] .task:not([open]):hover {
   background-color: var(--hover-bg);
 }
+.task[open] summary {
+  padding-bottom: 0;
+}
 .task[open] summary:hover h4 {
   color: var(--accent-pop);
 }
