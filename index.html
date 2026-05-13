@@ -122,14 +122,14 @@
         <ul>
           <li>
             <strong>Частина 1: Знайомство.</strong> Створення 2D масивів,
-            вкладеність, розміри та форматування коду.
+            вкладеність, форматування коду.
           </li>
           <li>
-            <strong>Частина 2: Координати та методи.</strong> Індекси (X та Y),
-            зміна елементів і робота з методами масивів.
+            <strong>Частина 2: Координати та методи.</strong> Індекси,
+            зміна елементів і методи масивів.
           </li>
           <li>
-            <strong>Частина 3: Сканування (ітерація).</strong> Властивість
+            <strong>Частина 3: Ітерація.</strong> Властивість
             length та перебір 2D масивів за допомогою циклів.
           </li>
         </ul>
@@ -1074,7 +1074,7 @@ console.log(board[0].length);</code></pre>
               Для цього завдання файли завантажувати не потрібно. Створи на
               своєму комп'ютері порожній
               <span class="accent">index.html</span> та підключи до нього файл
-              скрипта. Тепер скопіюй цю велику карту скарбів у свій JS-код:
+              скрипта. Тепер скопіюй цей масив із "мапою скарбів" у свій JS-файл:
             </p>
 
             <pre><code class="language-javascript">const treasureMap = [
@@ -1090,7 +1090,7 @@ console.log(board[0].length);</code></pre>
               <p>
                 Незалежно від способу перебору, у внутрішньому циклі (коли ти
                 вже дістався до конкретної клітинки) використовуй
-                <span class="accent">if</span>, щоб перевірити, чи лежить в
+                <span class="accent">if</span> та оператор порівняння <span class="accent">===</span>, щоб перевірити, чи лежить в
                 клітинці скарб.
               </p>
             </div>
@@ -1101,7 +1101,7 @@ console.log(board[0].length);</code></pre>
 
             <details class="task" name="task3" open>
               <summary>
-                <h4>Завдання 3.1: Точні координати (Спосіб 1)</h4>
+                <h4>Завдання 3.1: Класичний цикл for</h4>
               </summary>
 
               <div>
@@ -1124,7 +1124,7 @@ console.log(board[0].length);</code></pre>
 
             <details class="task" name="task3">
               <summary>
-                <h4>Завдання 3.2: Підрахунок запасів (Спосіб 2)</h4>
+                <h4>Завдання 3.2: for...of</h4>
               </summary>
 
               <div>
@@ -1152,7 +1152,7 @@ console.log(board[0].length);</code></pre>
             </details>
 
             <details class="task" name="task3">
-              <summary><h4>Завдання 3.3: Пошук Корони (Спосіб 3)</h4></summary>
+              <summary><h4>Завдання 3.3: метод forEach()</h4></summary>
 
               <div>
                 <p>
@@ -1433,44 +1433,44 @@ let colsCount = map[0].length;</code></pre>
 
               <fieldset class="test-question">
                 <legend>
-                  2. Який метод дозволяє додати новий рядок у САМИЙ ПОЧАТОК
-                  двовимірного масиву?
+                  2. Як можна додати новий рядок в кінець
+                  2D масиву?
                 </legend>
                 <label class="test-label">
                   <input
                     type="radio"
                     class="test-radio"
                     name="q3"
-                    value="push()"
+                    value="array.push(1, 2, 3)"
                   />
-                  push()
+                  array.push(1, 2, 3);
                 </label>
                 <label class="test-label">
                   <input
                     type="radio"
                     class="test-radio"
                     name="q3"
-                    value="shift()"
+                    value="array.pop(1, 2, 3)"
                   />
-                  shift()
+                  array.pop(1, 2, 3);
                 </label>
                 <label class="test-label">
                   <input
                     type="radio"
                     class="test-radio"
                     name="q3"
-                    value="unshift()"
+                    value="array.push([1, 2, 3])"
                   />
-                  unshift()
+                  array.push([1, 2, 3]);
                 </label>
                 <label class="test-label">
                   <input
                     type="radio"
                     class="test-radio"
                     name="q3"
-                    value="pop()"
+                    value="array.pop([1, 2, 3])"
                   />
-                  pop()
+                  array.pop([1, 2, 3]);
                 </label>
               </fieldset>
 
